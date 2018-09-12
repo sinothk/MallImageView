@@ -11,11 +11,12 @@
 ## Step 2. Add the dependency
 
 
+
 # 使用
 ## java
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     String[] urls = {
@@ -38,7 +39,7 @@ protected void onCreate(Bundle savedInstanceState) {
             Log.e("MallDemoImageView",imgUrl);
         }
     });
-}
+    }
 
 
 
