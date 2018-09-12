@@ -11,8 +11,8 @@
 ## Step 2. Add the dependency
 
  dependencies {
-
-
+	        implementation 'com.github.sinothk:MallImageView:1.0.0912'
+	}
 
 # 使用
 ## java
@@ -43,16 +43,17 @@
     });
     }
 
-
-
-
-
-
-
-
-
-
-
+## xml
+ 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.sinothk.widget.mallImageView.MallImageView
+            android:id="@+id/mallDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 
 ![](https://github.com/sinothk/MallImageView/blob/master/art/MallImageView.png)
