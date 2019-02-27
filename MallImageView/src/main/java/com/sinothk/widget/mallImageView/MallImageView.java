@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,11 +51,17 @@ public class MallImageView extends LinearLayout {
      *
      * @param urls
      */
-    public void setImgUrls(List<String> urls) {
+    public void setImgUrls(ArrayList<String> urls) {
         if (urls == null || urls.size() == 0) {
             return;
         }
-        setImgUrls((String[]) urls.toArray());
+
+        String[] urlsArr = new String[urls.size()];
+        for (int i = 0; i < urls.size(); i++) {
+            urlsArr[i] = urls.get(i);
+        }
+
+        setImgUrls(urlsArr);
     }
 
     /**
