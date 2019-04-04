@@ -104,7 +104,7 @@ public class MallImageView extends LinearLayout {
                 }
             });
 
-            this.addView(myImageView);
+            this.addView(myImageView, i);
         }
     }
 
