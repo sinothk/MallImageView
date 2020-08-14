@@ -9,12 +9,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never"
         android:layout_height="match_parent">
 
         <com.sinothk.widget.mallImageView.MallImageView
             android:id="@+id/mallDetailView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:orientation="vertical" />
     </ScrollView>
 
