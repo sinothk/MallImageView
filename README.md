@@ -11,7 +11,7 @@
 ## Step 2. Add the dependency
 
  	dependencies {
-	        implementation 'com.github.sinothk:MallImageView:2.0.0405'
+	        implementation 'com.github.sinothk:MallImageView:20.0.0815'
 	}
 
 # 使用
