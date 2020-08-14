@@ -11,10 +11,11 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
+//import com.bumptech.glide.RequestManager;
+//import com.bumptech.glide.request.target.ViewTarget;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>
@@ -52,7 +53,7 @@ public class MallImageView extends LinearLayout {
      *
      * @param urls
      */
-    public void setImgUrls(ArrayList<String> urls) {
+    public void setImgUrls(ArrayList<String> urls, ImgLoader imgLoader) {
         if (urls == null || urls.size() == 0) {
             return;
         }
@@ -62,15 +63,10 @@ public class MallImageView extends LinearLayout {
             urlsArr[i] = urls.get(i);
         }
 
-        setImgUrls(urlsArr);
+        setImgUrls(urlsArr, imgLoader);
     }
 
-    /**
-     * urls 为数组形式
-     *
-     * @param urls
-     */
-    public void setImgUrls(final String[] urls) {
+    public void setImgUrls(final String[] urls, ImgLoader imgLoader) {
         if (urls == null || urls.length == 0) {
             return;
         }
@@ -89,10 +85,13 @@ public class MallImageView extends LinearLayout {
             myImageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
             myImageView.setAdjustViewBounds(true);
 
-            Glide.with(this.getContext())
-                    .load(url)
-//                    .placeholder(R.drawable.loading_spinner)
-                    .into(myImageView);
+    //        Glide.with(MainActivity.this)
+    //                    .load(url)
+    //                    .placeholder(loadingImg)
+    //                    .error(errorImg)
+    //                    .into(myImageView);
+
+            imgLoader.onShow(myImageView, url);
 
             myImageView.setOnLongClickListener(new OnLongClickListener() {
                 @Override

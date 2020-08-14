@@ -2,15 +2,17 @@ package com.sinothk.widget.mallImageView.demo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.sinothk.widget.mallImageView.MallImageView;
+import com.sinothk.widget.mallImageView.ImgLoader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MallImageDemoMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,34 @@ public class MainActivity extends AppCompatActivity {
         urlList.add("https://img.alicdn.com/imgextra/i2/113462038/TB2rupFfMLD8KJjSszeXXaGRpXa_!!113462038.jpg");
         urlList.add("https://img.alicdn.com/imgextra/i1/113462038/TB2rmRSfPnD8KJjSspbXXbbEXXa_!!113462038.jpg");
 
-        mallDetailImageView.setImgUrls(urlList);
+        mallDetailImageView.setImgUrls(urlList, new ImgLoader() {
+
+            @Override
+            public void onShow(ImageView imageView, String imgUrl) {
+
+                Glide.with(MallImageDemoMainActivity.this)
+                        .load(imgUrl)
+//                    .placeholder(R.drawable.loading_spinner)
+                        .into(imageView);
+
+            }
+        });
+
+//        mallDetailImageView.showImgListener(new ShowImg() {
+//
+//            @Override
+//            public void onShow(ImageView imageView, String imgUrl) {
+//                Glide.with(MainActivity.this)
+//                        .load(imgUrl)
+////                    .placeholder(R.drawable.loading_spinner)
+//                        .into(imageView);
+//            }
+//        });
 
         mallDetailImageView.setOnImgLongClickListener(new MallImageView.OnImgLongClickListener() {
             @Override
             public void imgLongClick(int position, String imgUrl) {
-                Log.e("MallDemoImageView",imgUrl);
+                Log.e("MallDemoImageView", imgUrl);
             }
         });
     }
